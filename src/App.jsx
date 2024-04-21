@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react'
-import littleData from './littleData'
-import Detail from './detail'
-import './App.css'
+import React, { useState, useEffect } from 'react';
+import Detail from './detail';
+import './App.css';
 
 function App() {
   const [selectedPeriod, setSelectedPeriod] = useState('daily');
@@ -13,7 +12,7 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('./data.json');
+      const response = await fetch('./src/data.json');
       const jsonData = await response.json();
       setData(jsonData);
     } catch (error) {
@@ -21,23 +20,18 @@ function App() {
     }
   };
 
-const dataElement = littleData.map((data, index) => {
-  return <Detail 
-    key={index}
-    {...data}
-    selectedPeriod={selectedPeriod}
-  />
-})
-
   const handlePeriodClick = (period) => {
     setSelectedPeriod(period);
   };
+
+  // Filter data based on selected period
+  const filteredData = data.filter(item => item.timeframes[selectedPeriod]);
 
   return (
     <main className='container'>
       <div className='client'>
         <div className='profile'>
-          <img className='profile-pic' src="../src/assets/images/image-jeremy.png"/>
+          <img className='profile-pic' src="/images/image-jeremy.png" alt="Profile" />
           <h6>Report for</h6>
           <h2>Jeremy Robson</h2>
         </div>
@@ -48,10 +42,16 @@ const dataElement = littleData.map((data, index) => {
         </div>
       </div>
       <div className='data-element-container'>
-        {dataElement}      
+        {filteredData.map((dataItem, index) => (
+          <Detail 
+            key={index}
+            {...dataItem}
+            selectedPeriod={selectedPeriod}
+          />
+        ))}
       </div>
     </main>
-  )
+  );
 }
 
-export default App
+export default App;
