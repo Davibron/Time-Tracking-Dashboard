@@ -1,7 +1,7 @@
 body{
   max-width: 1280px;
   font-family: Rubik;
-  margin: 0 auto;
+  margin: 0;
   padding: 2rem;
   background-color: hsl(226, 43%, 10%);
   height: 100vh;
@@ -12,11 +12,11 @@ body{
 
 .container {
   display: flex;
-  width: 50rem;
+  width: 46rem;
 }
 
 .container .client {
-  width: 20%;
+  width: auto;
   margin: .5rem 1rem;
 }
 
@@ -31,17 +31,22 @@ body{
 .detail-container {
   margin: .5rem;
   width: 10.05rem;
-
 }
 
 .detail {
   padding: 1rem;
   color: white;
-  background-color: hsl(235, 46%, 20%);
   position: relative;
   top: -1.5rem;
   z-index: 2;
   border-radius: 10px;
+  background-color: hsl(236, 45%, 20%);
+}
+
+.detail:hover {
+  background: hsl(235, 45%, 61%);
+  cursor: pointer;
+  transition: ease-in .15s;
 }
 
 .detail h1{
@@ -95,7 +100,7 @@ body{
   flex-direction: column;
   width: 8.5rem;
   height: 4.5rem;
-  border-radius: 0 0 7px 7px;
+  border-radius: 0 0 10px 10px;
   padding: 1.5rem 1rem;
   position: relative;
   top: -15px;
@@ -107,6 +112,7 @@ body{
 span {
   margin-block: .3rem;
   font-size: .7rem;
+  width: 30%;
 }
 
 span:hover {
@@ -123,6 +129,10 @@ h2, h6 {
 
 h6 {
   margin-top: 1rem;
+}
+
+.timeframe h6 {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 h2 {
@@ -142,4 +152,111 @@ h2 {
 .image-container img {
   height: 2.5rem;
   margin-right: 10px;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 2rem 0;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: 100vh;
+    align-items: center;
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 85vw;
+    height: 12vh;
+    padding: 1rem 0;
+    border-radius: 12px;
+  }
+
+  .profile-pic {
+    height: 80%;
+    width: auto;
+    margin-right: .5rem;
+  }
+
+  .profile div {
+    height: 3rem;
+    padding: 0%;
+    margin-left: 10px;
+  }
+
+  .profile h6 {
+    margin-top: 0;
+    font-size: .9rem;
+  }
+
+  .profile h2 {
+    font-size: 1.5rem;
+  }
+
+  .period {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: center;
+    align-items:end;
+    padding: 0;
+  }
+
+  span {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.1rem;
+    margin: 2.2rem .5rem 1.3rem;
+  }
+
+  .data-element-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: -15%;
+  }
+
+  .detail-container,
+  .image-container {
+    width: 85vw;
+  }
+
+  .detail {
+    top: -.9rem;
+    height: auto;
+    padding-top: 1.5rem;
+  }
+
+  .image-container img {
+    height: 5rem;
+  }
+
+  .timeframe {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .timeframe h6 {
+    margin-top: 1.2rem;
+    font-size: 1rem;
+  }
+
+  .timeframe h1 {
+    font-size: 2rem;
+  }
+
+  .ellipsis-container p {
+    font-size: 1.2rem;
+  }
+
+  .ellipsis-container img {
+    height: .3rem;
+  }
 }

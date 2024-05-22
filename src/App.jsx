@@ -32,8 +32,10 @@ function App() {
       <div className='client'>
         <div className='profile'>
           <img className='profile-pic' src="/images/image-jeremy.png" alt="Profile" />
-          <h6>Report for</h6>
-          <h2>Jeremy Robson</h2>
+          <div>
+            <h6>Report for</h6>
+            <h2>Jeremy Robson</h2>  
+          </div>
         </div>
         <div className='period'>
           <span onClick={() => handlePeriodClick('daily')}>Daily</span>

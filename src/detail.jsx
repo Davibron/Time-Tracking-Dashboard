@@ -13,8 +13,10 @@ export default function Detail({ title, style, img, timeframes, selectedPeriod }
           <p>{title}</p>
           <img src="/images/icon-ellipsis.svg" alt="Ellipsis" />
         </div>
-        <h1>{timeframe.current}hrs</h1>
-        <h6>Last Week - {timeframe.previous}hrs</h6>
+        <div className='timeframe'>
+          <h1>{timeframe.current}hrs</h1>
+          <h6>Last Week - {timeframe.previous}hrs</h6>          
+        </div>
       </div>
     </div>
   );
